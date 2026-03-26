@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liminal Veil — The Tarot App for Every Seeker</title>
+  <meta name="description" content="Liminal Veil is a tarot learning app for every seeker. Pull cards, reflect, and know. Coming soon."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-dim: #8a6e2f;
+      --gold-glow: rgba(201, 168, 76, 0.18);
+      --black: #080808;
+      --off-black: #0e0e0e;
+      --white: #f5f0e8;
+      --muted: rgba(245, 240, 232, 0.45);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── CANVAS STARS ── */
+    #starfield {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── NEBULA GRADIENT ── */
+    .nebula {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 30%, rgba(201,168,76,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 70%, rgba(100,60,160,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 40% at 50% 100%, rgba(201,168,76,0.04) 0%, transparent 60%);
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 56px 0 0;
+      text-align: center;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    .sigil {
+      font-size: 2rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      margin-bottom: 24px;
+      display: block;
+      opacity: 0.7;
+    }
+
+    .wordmark {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(2.6rem, 8vw, 4.4rem);
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      line-height: 1;
+      text-shadow: 0 0 60px rgba(201,168,76,0.35), 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .wordmark span {
+      display: block;
+      font-size: 0.38em;
+      letter-spacing: 0.55em;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 36px 0;
+      animation: fadeUp 1.2s 0.2s ease both;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+    .divider-icon {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 0.4em;
+      opacity: 0.8;
+    }
+
+    /* ── HERO TEXT ── */
+    .tagline {
+      font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--white);
+      text-align: center;
+      line-height: 1.6;
+      animation: fadeUp 1.2s 0.3s ease both;
+    }
+
+    .tagline strong {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      margin: 48px 0;
+      text-align: center;
+      animation: fadeUp 1.2s 0.4s ease both;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(245,240,232,0.75);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 40px 0;
+      animation: fadeUp 1.2s 0.5s ease both;
+    }
+
+    @media (max-width: 480px) {
+      .features { grid-template-columns: 1fr; }
+    }
+
+    .feature-card {
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(201,168,76,0.04);
+      padding: 22px 20px;
+      text-align: center;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(201,168,76,0.5);
+      background: rgba(201,168,76,0.08);
+    }
+
+    .feature-icon {
+      font-size: 1.4rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .feature-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── EMAIL CAPTURE ── */
+    .notify-section {
+      margin: 48px 0;
+      text-align: center;
+      animation: fadeUp 1.2s 0.6s ease both;
+    }
+
+    .notify-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .notify-form {
+      display: flex;
+      gap: 0;
+      max-width: 440px;
+      margin: 0 auto;
+      border: 1px solid rgba(201,168,76,0.4);
+    }
+
+    .notify-form input {
+      flex: 1;
+      background: rgba(201,168,76,0.05);
+      border: none;
+      padding: 14px 18px;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 300;
+      outline: none;
+    }
+
+    .notify-form input::placeholder {
+      color: rgba(245,240,232,0.3);
+      font-style: italic;
+    }
+
+    .notify-form button {
+      background: var(--gold);
+      border: none;
+      padding: 14px 22px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s;
+      white-space: nowrap;
+    }
+
+    .notify-form button:hover {
+      background: #e0bc5e;
+    }
+
+    .notify-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* ── LINKS ── */
+    .links-section {
+      margin: 48px 0 0;
+      animation: fadeUp 1.2s 0.7s ease both;
+    }
+
+    .links-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px;
+      border: 1px solid rgba(201,168,76,0.25);
+      background: rgba(201,168,76,0.03);
+      text-decoration: none;
+      color: var(--white);
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .link-btn:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.08);
+      transform: translateX(4px);
+    }
+
+    .link-btn-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .link-btn-icon {
+      font-size: 1.1rem;
+      color: var(--gold);
+      width: 20px;
+      text-align: center;
+    }
+
+    .link-btn-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .link-btn-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .link-btn-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .link-btn-arrow {
+      color: var(--gold-dim);
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    /* ── PATREON special ── */
+    .link-btn.patreon {
+      border-color: rgba(201,168,76,0.45);
+      background: rgba(201,168,76,0.07);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 72px;
+      padding-bottom: 48px;
+      text-align: center;
+      animation: fadeUp 1.2s 0.9s ease both;
+    }
+
+    footer .footer-mark {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: rgba(201,168,76,0.35);
+      text-transform: uppercase;
+    }
+
+    footer .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(201,168,76,0.2);
+      margin: 16px auto;
+    }
+
+    footer .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.25);
+      font-style: italic;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── THANK YOU STATE ── */
+    .thank-you {
+      display: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-align: center;
+      padding: 18px;
+      border: 1px solid rgba(201,168,76,0.3);
+      max-width: 440px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="starfield"></canvas>
+  <div class="nebula"></div>
+
+  <div class="wrapper">
+
+    <header>
+      <span class="sigil">☽ ◎ ✦ ◈ ☽</span>
+      <div class="wordmark">
+        Liminal Veil
+        <span>The Veil Is Thinning</span>
+      </div>
+    </header>
+
+    <div class="divider">
+      <span class="divider-icon">◇ ✦ ◇</span>
+    </div>
+
+    <p class="tagline">
+      A tarot learning app built for <strong>every seeker</strong> —<br/>
+      beginner to intuitive. Pull. Reflect. Know.
+    </p>
+
+    <div class="about">
+      <p>
+        Liminal Veil is a tarot app rooted in inclusivity, intuition, and genuine learning.
+        Card definitions, AI-powered readings, spread libraries, quizzes, and a journal —
+        all in one sacred space. Coming soon to iOS &amp; Android.
+      </p>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon">◎</span>
+        <h3>Card Library</h3>
+        <p>All 78 cards with upright &amp; reversed meanings</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">✦</span>
+        <h3>Spread Library</h3>
+        <p>From daily draws to Celtic Cross</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">◇</span>
+        <h3>Tarot Journal</h3>
+        <p>Log readings, track patterns, grow</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">◈</span>
+        <h3>AI Readings</h3>
+        <p>Personalized interpretations, no gatekeeping</p>
+      </div>
+    </div>
+
+    <div class="divider">
+      <span class="divider-icon">◇ ✦ ◇</span>
+    </div>
+
+    <div class="notify-section">
+      <span class="notify-label">☽ &nbsp; Be the first to know &nbsp; ☽</span>
+      <div class="notify-form" id="notifyForm">
+        <input type="email" id="emailInput" placeholder="your@email.com" autocomplete="email"/>
+        <button onclick="handleNotify()">Notify Me</button>
+      </div>
+      <div class="thank-you" id="thankYou">✦ &nbsp; You're on the list. The cards await. &nbsp; ✦</div>
+      <p class="notify-note">No spam. Just a message when we launch.</p>
+    </div>
+
+    <div class="divider">
+      <span class="divider-icon">◇ ✦ ◇</span>
+    </div>
+
+    <div class="links-section">
+      <span class="links-label">☽ &nbsp; Find Us &nbsp; ☽</span>
+      <div class="links-grid">
+
+        <a class="link-btn patreon" href="https://www.patreon.com/ohizkimmie" target="_blank" rel="noopener">
+          <div class="link-btn-left">
+            <span class="link-btn-icon">◉</span>
+            <div class="link-btn-text">
+              <span class="link-btn-title">Support on Patreon</span>
+              <span class="link-btn-sub">Help bring Liminal Veil to life</span>
+            </div>
+          </div>
+          <span class="link-btn-arrow">→</span>
+        </a>
+
+        <a class="link-btn" href="https://www.tiktok.com/@ohizkimmie2.0" target="_blank" rel="noopener">
+          <div class="link-btn-left">
+            <span class="link-btn-icon">✦</span>
+            <div class="link-btn-text">
+              <span class="link-btn-title">TikTok</span>
+              <span class="link-btn-sub">@ohizkimmie2.0 · Nomad life &amp; tarot</span>
+            </div>
+          </div>
+          <span class="link-btn-arrow">→</span>
+        </a>
+
+        <a class="link-btn" href="https://www.youtube.com/@ohizkimmie" target="_blank" rel="noopener">
+          <div class="link-btn-left">
+            <span class="link-btn-icon">◎</span>
+            <div class="link-btn-text">
+              <span class="link-btn-title">YouTube</span>
+              <span class="link-btn-sub">@ohizkimmie · Nomad chronicles</span>
+            </div>
+          </div>
+          <span class="link-btn-arrow">→</span>
+        </a>
+
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-divider"></div>
+      <p class="footer-mark">◎ TM · 2026 OhIzKimmie</p>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">Liminal Veil · Pull. Reflect. Know.</p>
+    </footer>
+
+  </div><!-- /wrapper -->
+
+  <script>
+    // ── STARFIELD ──
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function initStars() {
+      stars = [];
+      const count = Math.floor((canvas.width * canvas.height) / 5000);
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.1 + 0.1,
+          alpha: Math.random() * 0.6 + 0.1,
+          speed: Math.random() * 0.3 + 0.05,
+          dir: Math.random() > 0.5 ? 1 : -1
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        s.alpha += s.speed * 0.01 * s.dir;
+        if (s.alpha >= 0.7 || s.alpha <= 0.05) s.dir *= -1;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201,168,76,${s.alpha})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(drawStars);
+    }
+
+    resize();
+    initStars();
+    drawStars();
+    window.addEventListener('resize', () => { resize(); initStars(); });
+
+    // ── EMAIL NOTIFY ──
+    async function handleNotify() {
+      const input = document.getElementById('emailInput');
+      const form  = document.getElementById('notifyForm');
+      const thanks = document.getElementById('thankYou');
+      const email = input.value.trim();
+
+      if (!email || !email.includes('@')) {
+        input.style.borderLeft = '2px solid rgba(201,168,76,0.8)';
+        input.focus();
+        return;
+      }
+
+      try {
+        const res = await fetch('https://formspree.io/f/mbdplgky', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email, source: 'Liminal Veil Landing Page' })
+        });
+
+        if (res.ok) {
+          form.style.display   = 'none';
+          thanks.style.display = 'block';
+        } else {
+          alert('Something went wrong. Please try again!');
+        }
+      } catch (err) {
+        alert('Something went wrong. Please try again!');
+      }
+    }
+
+    document.getElementById('emailInput')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleNotify();
+    });
+  </script>
+</body>
+</html>
