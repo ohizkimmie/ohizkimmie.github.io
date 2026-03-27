@@ -36,28 +36,24 @@
 
     body {
       background-color: var(--deep);
+      background-image: url('bg.png');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
       color: var(--cream);
       font-family: 'Cormorant Garamond', Georgia, serif;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    #starfield {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
+    #starfield { display: none; }
 
     .nebula {
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background:
-        radial-gradient(ellipse 70% 50% at 15% 20%, rgba(180,100,60,0.1) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 60% at 85% 75%, rgba(201,168,76,0.08) 0%, transparent 65%),
-        radial-gradient(ellipse 60% 40% at 50% 110%, rgba(150,80,60,0.07) 0%, transparent 60%);
+      background: rgba(8, 6, 4, 0.55);
     }
 
     .wrapper {
