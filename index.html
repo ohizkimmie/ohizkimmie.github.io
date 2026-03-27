@@ -63,9 +63,20 @@
     .wrapper {
       position: relative;
       z-index: 1;
-      max-width: 620px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 22px;
+      padding: 0 40px;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding-top: 80px; }
+      .avatar-ring { width: 130px; height: 130px; }
+      .bio p { font-size: 1.2rem; }
+      .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .booking-form-wrap.open { max-height: 800px; }
+      .booking-form-inner { padding: 28px 32px; }
+      .newsletter-card { padding: 36px 40px; }
+      .lva-card { padding: 40px 48px; }
     }
 
     /* HERO */
