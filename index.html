@@ -170,17 +170,18 @@
       font-size: 0.62rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--deep);
       text-decoration: none;
-      border: 1px solid rgba(201,168,76,0.6);
+      border: 1px solid var(--gold);
       padding: 8px 18px;
-      background: rgba(8,8,8,0.72);
+      background: var(--gold);
+      font-weight: 700;
       transition: background 0.2s, border-color 0.2s;
     }
 
     .start-here a:hover {
-      background: rgba(8,8,8,0.92);
-      border-color: rgba(201,168,76,0.9);
+      background: #dfc05e;
+      border-color: #dfc05e;
     }
 
     /* DIVIDER */
@@ -640,7 +641,7 @@
       font-family: 'Cinzel', serif;
       font-size: 0.58rem;
       letter-spacing: 0.28em;
-      color: rgba(201,168,76,0.7);
+      color: var(--gold);
       text-transform: uppercase;
       margin-bottom: 10px;
       display: block;
@@ -648,7 +649,7 @@
 
     .footer-copy {
       font-size: 0.72rem;
-      color: rgba(242,235,224,0.5);
+      color: var(--soft);
       font-style: italic;
     }
 
@@ -676,7 +677,7 @@
       </p>
       <!-- START HERE ANCHORS -->
       <div class="start-here">
-        <a href="#book">☽ Get a Reading</a>
+        <a href="https://calendly.com/oh-iz-kimmie" target="_blank" rel="noopener">☽ Get a Reading</a>
       </div>
     </div>
 
@@ -759,8 +760,7 @@
           <span class="link-arrow">→</span>
         </a>
 
-        <!-- GOLD BOOK A READING BUTTON -->
-        <button id="book" class="link-btn booking-trigger" onclick="toggleBooking()">
+        <a class="link-btn booking-trigger" href="https://calendly.com/oh-iz-kimmie" target="_blank" rel="noopener">
           <div class="link-left">
             <span class="link-icon">☽</span>
             <div class="link-text">
@@ -768,42 +768,9 @@
               <span class="link-sub">Request a personal tarot reading with Kim</span>
             </div>
           </div>
-          <span class="link-arrow booking-arrow">↓</span>
-        </button>
+          <span class="link-arrow">→</span>
+        </a>
 
-      </div>
-
-      <!-- BOOKING FORM -->
-      <div class="booking-form-wrap" id="bookingWrap">
-        <div class="booking-form-inner">
-          <p class="booking-intro">Fill out the form below and Kim will be in touch to confirm your reading. ✨</p>
-          <div class="bfield">
-            <label>Your Name</label>
-            <input type="text" id="bName" placeholder="First & last name" autocomplete="name"/>
-          </div>
-          <div class="bfield">
-            <label>Your Email</label>
-            <input type="email" id="bEmail" placeholder="your@email.com" autocomplete="email"/>
-          </div>
-          <div class="bfield">
-            <label>Type of Reading</label>
-            <select id="bType">
-              <option value="">— Select a reading —</option>
-              <option>Free Consultation</option>
-              <option>30 Min Reading ($50)</option>
-              <option>60 Min Reading ($90)</option>
-              <option>Email Reading ($20)</option>
-              <option>Video Reading ($30)</option>
-              <option>Talk It Out Call 60 Min ($75)</option>
-            </select>
-          </div>
-          <div class="bfield">
-            <label>Your Question or Message <span class="blabel-opt">(optional)</span></label>
-            <textarea id="bMessage" placeholder="Share anything you'd like Kim to hold space for..." rows="4"></textarea>
-          </div>
-          <button class="book-submit" onclick="handleBooking()">Send My Request &nbsp; →</button>
-          <div class="book-thanks" id="bookThanks">☽ &nbsp; Request received! Kim will be in touch soon. &nbsp; ☽</div>
-        </div>
       </div>
 
     </div>
@@ -947,47 +914,6 @@
         if (res.ok) {
           form.style.display   = 'none';
           thanks.style.display = 'block';
-        } else {
-          alert('Something went wrong — please try again!');
-        }
-      } catch {
-        alert('Something went wrong — please try again!');
-      }
-    }
-
-    function toggleBooking() {
-      const wrap = document.getElementById('bookingWrap');
-      const arrow = document.querySelector('.booking-arrow');
-      const isOpen = wrap.classList.toggle('open');
-      arrow.textContent = isOpen ? '↑' : '↓';
-    }
-
-    async function handleBooking() {
-      const name    = document.getElementById('bName').value.trim();
-      const email   = document.getElementById('bEmail').value.trim();
-      const type    = document.getElementById('bType').value;
-      const message = document.getElementById('bMessage').value.trim();
-
-      if (!name || !email || !email.includes('@') || !type) {
-        alert('Please fill in your name, email, and reading type!');
-        return;
-      }
-
-      try {
-        const res = await fetch('https://formspree.io/f/mbdplgky', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            source:  'Booking Request',
-            name,
-            email,
-            reading: type,
-            message: message || 'No message provided'
-          })
-        });
-        if (res.ok) {
-          document.querySelector('.book-submit').style.display = 'none';
-          document.getElementById('bookThanks').style.display = 'block';
         } else {
           alert('Something went wrong — please try again!');
         }
