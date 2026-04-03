@@ -4,18 +4,20 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OhIzKimmie — Nomad. Creator. Tarot Reader.</title>
-  <meta name="description" content="Kim — nomadic content creator, tarot reader, and creator of Liminal Veil. Follow the journey."/>
+  <meta name="description" content="Kim — solo female nomadic content creator, tarot reader with 25 years experience, and creator of Liminal Veil. Vanlife, tarot education, and senior dogs. Follow the journey."/>
 
   <!-- Open Graph / Link Preview -->
   <meta property="og:type"        content="website"/>
   <meta property="og:url"         content="https://ohizkimmie.github.io/"/>
   <meta property="og:title"       content="OhIzKimmie — Nomad. Creator. Tarot Reader."/>
-  <meta property="og:description" content="Nomadic content creator, tarot reader, and creator of Liminal Veil — a tarot app for every seeker. Follow the journey."/>
+  <meta property="og:description" content="Solo female nomadic content creator, tarot reader, and creator of Liminal Veil — a tarot app for every seeker. Vanlife, tarot education, and senior dogs."/>
   <meta property="og:image"       content="https://ohizkimmie.github.io/photo.jpg"/>
   <meta name="twitter:card"        content="summary_large_image"/>
   <meta name="twitter:title"       content="OhIzKimmie — Nomad. Creator. Tarot Reader."/>
-  <meta name="twitter:description" content="Nomadic content creator, tarot reader, and creator of Liminal Veil — a tarot app for every seeker."/>
+  <meta name="twitter:description" content="Solo female nomadic content creator, tarot reader, and creator of Liminal Veil — a tarot app for every seeker."/>
   <meta name="twitter:image"       content="https://ohizkimmie.github.io/photo.jpg"/>
+  <!-- SEO keywords -->
+  <meta name="keywords" content="solo female travel, nomadic lifestyle, tarot education, tarot reader, vanlife, SUV camping, Liminal Veil, OhIzKimmie, tarot app, senior dogs"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet"/>
@@ -154,6 +156,34 @@
       color: var(--gold);
     }
 
+    /* START HERE ANCHORS */
+    .start-here {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .start-here a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid rgba(201,168,76,0.35);
+      padding: 8px 18px;
+      transition: background 0.2s, border-color 0.2s;
+      opacity: 0.85;
+    }
+
+    .start-here a:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: rgba(201,168,76,0.65);
+      opacity: 1;
+    }
+
     /* DIVIDER */
     .divider {
       display: flex;
@@ -231,6 +261,35 @@
     .link-btn.featured {
       border-color: rgba(201,168,76,0.35);
       background: rgba(201,168,76,0.05);
+    }
+
+    /* GOLD BOOK A READING BUTTON */
+    .link-btn.booking-trigger {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--deep);
+      font-family: inherit;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .link-btn.booking-trigger .link-title {
+      color: var(--deep);
+    }
+
+    .link-btn.booking-trigger .link-sub {
+      color: rgba(13,10,8,0.65);
+    }
+
+    .link-btn.booking-trigger .link-icon,
+    .link-btn.booking-trigger .link-arrow {
+      color: var(--deep);
+    }
+
+    .link-btn.booking-trigger:hover {
+      background: #dfc05e;
+      border-color: #dfc05e;
+      transform: translateX(5px);
     }
 
     .link-left {
@@ -387,14 +446,6 @@
     }
 
     /* BOOKING FORM */
-    .booking-trigger {
-      width: 100%;
-      background: rgba(201,168,76,0.03);
-      font-family: inherit;
-      cursor: pointer;
-      text-align: left;
-    }
-
     .booking-form-wrap {
       max-height: 0;
       overflow: hidden;
@@ -571,24 +622,6 @@
       flex-shrink: 0;
     }
 
-    .newsletter-form button:hover {
-      background: var(--gold);
-      color: var(--deep);
-    }
-
-    .newsletter-thanks {
-      display: none;
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.22em;
-      color: var(--gold);
-      text-transform: uppercase;
-      padding: 16px;
-      border: 1px solid rgba(201,168,76,0.3);
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
     /* FOOTER */
     footer {
       margin-top: 64px;
@@ -642,6 +675,10 @@
       <p class="tagline">
         Nomad. Creator. Tarot reader.
       </p>
+      <!-- START HERE ANCHORS -->
+      <div class="start-here">
+        <a href="#book">☽ Get a Reading</a>
+      </div>
     </div>
 
     <div class="divider" style="animation: fadeUp 1.1s 0.15s ease both;">
@@ -673,7 +710,7 @@
             <span class="link-icon">✦</span>
             <div class="link-text">
               <span class="link-title">TikTok</span>
-              <span class="link-sub">@ohizkimmie2.0 · Nomad life & the road</span>
+              <span class="link-sub">@ohizkimmie2.0</span>
             </div>
           </div>
           <span class="link-arrow">→</span>
@@ -684,7 +721,7 @@
             <span class="link-icon">◎</span>
             <div class="link-text">
               <span class="link-title">YouTube</span>
-              <span class="link-sub">@ohizkimmie · Long-form nomad chronicles</span>
+              <span class="link-sub">@ohizkimmie</span>
             </div>
           </div>
           <span class="link-arrow">→</span>
@@ -723,7 +760,8 @@
           <span class="link-arrow">→</span>
         </a>
 
-        <button class="link-btn booking-trigger" onclick="toggleBooking()">
+        <!-- GOLD BOOK A READING BUTTON -->
+        <button id="book" class="link-btn booking-trigger" onclick="toggleBooking()">
           <div class="link-left">
             <span class="link-icon">☽</span>
             <div class="link-text">
@@ -775,7 +813,8 @@
       <span>◈ ✦ ◈</span>
     </div>
 
-    <div class="lva-section">
+    <!-- LVA TEASER -->
+    <div class="lva-section" id="app">
       <span class="section-label">☽ &nbsp; Coming Soon &nbsp; ☽</span>
       <div class="lva-card">
         <span class="lva-badge">Now in Development</span>
@@ -795,24 +834,6 @@
     </div>
 
     <div class="divider" style="animation: fadeUp 1.1s 0.65s ease both;">
-      <span>☽ ✦ ☽</span>
-    </div>
-
-    <!-- NEWSLETTER -->
-    <div class="newsletter-section" style="animation: fadeUp 1.1s 0.7s ease both;">
-      <span class="section-label">☽ &nbsp; Stay in the Loop &nbsp; ☽</span>
-      <div class="newsletter-card">
-        <p class="newsletter-desc">Nomad life updates, tarot musings, and Liminal Veil news — straight to your inbox. No fluff, just the good stuff.</p>
-        <div class="newsletter-form" id="newsletterForm">
-          <input type="email" id="nlEmail" placeholder="your@email.com" autocomplete="email"/>
-          <button onclick="handleNewsletter()">Subscribe</button>
-        </div>
-        <div class="newsletter-thanks" id="newsletterThanks">✦ &nbsp; Welcome to the journey. &nbsp; ✦</div>
-        <p class="notify-note">No spam. Unsubscribe anytime.</p>
-      </div>
-    </div>
-
-    <div class="divider" style="animation: fadeUp 1.1s 0.75s ease both;">
       <span>◎ ✦ ◎</span>
     </div>
 
@@ -834,11 +855,11 @@
             <label>Subject</label>
             <select id="cSubject">
               <option value="" disabled selected>— What brings you here? —</option>
-              <option>General Message</option>
-              <option>Collaboration Inquiry</option>
-              <option>Liminal Veil / App</option>
               <option>Tarot Reading</option>
+              <option>Liminal Veil / App Feedback &amp; Support</option>
+              <option>Collaboration Inquiry</option>
               <option>Press or Media</option>
+              <option>General Message</option>
               <option>Other</option>
             </select>
           </div>
@@ -968,35 +989,6 @@
         if (res.ok) {
           document.querySelector('.book-submit').style.display = 'none';
           document.getElementById('bookThanks').style.display = 'block';
-        } else {
-          alert('Something went wrong — please try again!');
-        }
-      } catch {
-        alert('Something went wrong — please try again!');
-      }
-    }
-
-    async function handleNewsletter() {
-      const input  = document.getElementById('nlEmail');
-      const form   = document.getElementById('newsletterForm');
-      const thanks = document.getElementById('newsletterThanks');
-      const email  = input.value.trim();
-
-      if (!email || !email.includes('@')) {
-        input.style.outline = '1px solid rgba(201,168,76,0.8)';
-        input.focus();
-        return;
-      }
-
-      try {
-        const res = await fetch('https://formspree.io/f/mbdplgky', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email, source: 'OhIzKimmie — Newsletter' })
-        });
-        if (res.ok) {
-          form.style.display   = 'none';
-          thanks.style.display = 'block';
         } else {
           alert('Something went wrong — please try again!');
         }
