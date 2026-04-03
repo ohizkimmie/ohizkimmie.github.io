@@ -1,2 +1,2 @@
 # ohizkimmie.github.io
-Website built with Claude 
+OhIzKimmie Hub
