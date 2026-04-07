@@ -561,7 +561,7 @@
         This isn't your typical tarot reading. Blank Tarot &amp; Spirit Art is a rare, fully collaborative live experience where two gifted readers come together to offer something neither could do alone.
       </p>
       <p>
-        Kim reads intuitively from the cards — pulling, interpreting, and delivering messages with 25 years of tarot experience behind every word. At the same time, MindfulMandy108 channels what she sees spiritually and translates it into original art, created live during the session. What you walk away with is both a reading <em>and</em> a piece of channeled art made specifically for your energy in that moment.
+        Kim reads intuitively from the cards — pulling, interpreting, and delivering messages with 25 years of tarot experience behind every word. At the same time, Mandy channels what she sees spiritually and translates it into original art, created live during the session. Her 9 years of spirit communication guiding her every move. What you walk away with is both a reading <em>and</em> a piece of channeled art made specifically for your energy in that moment.
       </p>
       <p>
         These sessions are rare, intimate, and unlike anything else you'll experience on TikTok Live. When they're available, they go fast.
@@ -589,7 +589,7 @@
           <div class="feature-icon">✦</div>
           <div class="feature-text">
             <h4>Channeled Spirit Art</h4>
-            <p>MindfulMandy108 creates original art live, channeling what she spiritually receives during your reading.</p>
+            <p>Mandy creates original art live, channeling what she spiritually receives during your reading.</p>
           </div>
         </div>
 
@@ -621,7 +621,7 @@
       <div class="disclaimer-card">
         <p class="disclaimer-title">✦ &nbsp; Important — Please Read Before Booking &nbsp; ✦</p>
         <p class="disclaimer-text">
-          This offering is <strong>only available on select days</strong> when both Kim and MindfulMandy108 are live together.
+          This offering is <strong>only available on select days</strong> when both Kim and Mandy are live together on pre-scheduled lives.
           Paying does not guarantee an immediate session. After payment, send your name and "Blank Tarot and Spirit Art"
           in your payment note so Kim can add you to the waitlist. You'll be notified when the next collab live is scheduled.<br/><br/>
           Follow <strong>@ohizkimmie2.0</strong> and <strong>@MindfulMandy108</strong> on TikTok and turn on post notifications
@@ -653,17 +653,9 @@
           </div>
 
           <div class="bfield">
-            <label>Type of Reading <span style="color:rgba(201,168,76,0.5); font-family:'Cormorant Garamond',serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:0.78rem;">— required</span></label>
-            <select id="bReading">
-              <option value="" disabled selected>— Choose your reading —</option>
-              <option value="Blank Tarot and Spirit Art — $60">Blank Tarot and Spirit Art — $60</option>
-            </select>
-          </div>
-
-          <div class="bfield">
             <label>Anything you'd like to share before your reading? <span style="color:rgba(201,168,76,0.5); font-family:'Cormorant Garamond',serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:0.78rem;">— optional</span></label>
             <textarea id="bNote" placeholder="A word or two is plenty..." rows="4"></textarea>
-            <p class="field-note">✦ Please keep this brief — the less Kim knows going in, the more organic and accurate your reading will be.</p>
+            <p class="field-note">✦ Please keep this brief — the less Kim and Mandy know going in, the more organic and accurate your reading will be.</p>
           </div>
 
           <button class="form-submit" id="bookingSubmitBtn" onclick="handleBookingForm()">Complete &amp; Unlock Payment &nbsp; ☽</button>
@@ -694,7 +686,7 @@
         </div>
         <p class="pay-note">
           Include <strong>"Blank Tarot and Spirit Art"</strong> and your name in the payment note.<br/>
-          Questions? Reach Kim at <strong><a href="mailto:kim@ohizkimmie.com" style="color:var(--soft); text-decoration:none;">kim@ohizkimmie.com</a></strong>
+          Questions? Reach Kim at <strong><a href="/cdn-cgi/l/email-protection#8ee5e7e3cee1e6e7f4e5e7e3e3e7eba0ede1e3" style="color:var(--soft); text-decoration:none;"><span class="__cf_email__" data-cfemail="cea5a7a38ea1a6a7b4a5a7a3a3a7abe0ada1a3">[email&#160;protected]</span></a></strong>
         </p>
       </div>
     </div>
@@ -707,16 +699,15 @@
 
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     async function handleBookingForm() {
       const name    = document.getElementById('bName').value.trim();
       const email   = document.getElementById('bEmail').value.trim();
-      const reading = document.getElementById('bReading').value;
       const note    = document.getElementById('bNote').value.trim();
       const btn     = document.getElementById('bookingSubmitBtn');
 
       // Clear previous errors
-      ['bName','bEmail','bReading'].forEach(id => {
+      ['bName','bEmail'].forEach(id => {
         document.getElementById(id).classList.remove('error');
       });
 
@@ -724,7 +715,6 @@
       let valid = true;
       if (!name)                         { document.getElementById('bName').classList.add('error');    valid = false; }
       if (!email || !email.includes('@')) { document.getElementById('bEmail').classList.add('error');   valid = false; }
-      if (!reading)                       { document.getElementById('bReading').classList.add('error'); valid = false; }
       if (!valid) return;
 
       btn.disabled = true;
@@ -737,7 +727,6 @@
           body: JSON.stringify({
             name,
             email,
-            reading_type: reading,
             notes: note || 'None provided',
             source: 'OhIzKimmie — Blank Tarot & Spirit Art',
             _replyto: email,
@@ -762,14 +751,4 @@
         } else {
           btn.disabled = false;
           btn.textContent = 'Complete & Unlock Payment ☽';
-          alert('Something went wrong — please try again.');
-        }
-      } catch {
-        btn.disabled = false;
-        btn.textContent = 'Complete & Unlock Payment ☽';
-        alert('Something went wrong — please try again.');
-      }
-    }
-  </script>
-</body>
-</html>
+          alert('Something went wrong �
