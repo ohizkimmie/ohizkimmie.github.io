@@ -207,12 +207,7 @@
       align-items: flex-start;
     }
 
-    .feature-icon {
-      font-size: 1.1rem;
-      color: var(--gold);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
+    .feature-icon { font-size: 1.1rem; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
 
     .feature-text h4 {
       font-family: 'Cinzel', serif;
@@ -231,7 +226,7 @@
       line-height: 1.65;
     }
 
-    /* DISCLAIMER BOX */
+    /* DISCLAIMER */
     .disclaimer-section { animation: fadeUp 1.1s 0.4s ease both; }
 
     .disclaimer-card {
@@ -267,19 +262,142 @@
       line-height: 1.8;
     }
 
-    .disclaimer-text strong {
-      font-weight: 500;
-      color: var(--cream);
-      font-style: normal;
+    .disclaimer-text strong { font-weight: 500; color: var(--cream); font-style: normal; }
+
+    /* BOOKING FORM */
+    .booking-form-section { animation: fadeUp 1.1s 0.45s ease both; }
+
+    .booking-form-card {
+      border: 1px solid rgba(201,168,76,0.3);
+      background: linear-gradient(135deg, rgba(8,8,8,0.85), rgba(8,8,8,0.72));
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
     }
 
-    /* BOOKING SECTION */
-    .booking-section {
-      animation: fadeUp 1.1s 0.5s ease both;
+    .booking-form-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07), transparent 65%);
+      pointer-events: none;
+    }
+
+    .form-intro {
+      font-size: 1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--soft);
+      line-height: 1.75;
+      margin-bottom: 24px;
       text-align: center;
     }
 
-    .booking-card {
+    .bfield {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .bfield label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.9;
+    }
+
+    .bfield input,
+    .bfield select,
+    .bfield textarea {
+      background: rgba(201,168,76,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 12px 14px;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 300;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .bfield input::placeholder,
+    .bfield textarea::placeholder {
+      color: rgba(242,235,224,0.28);
+      font-style: italic;
+    }
+
+    .bfield select option { background: #1a1410; }
+
+    .bfield input:focus,
+    .bfield select:focus,
+    .bfield textarea:focus { border-color: rgba(201,168,76,0.55); }
+
+    .bfield input.error,
+    .bfield select.error,
+    .bfield textarea.error { border-color: rgba(201,168,76,0.85); }
+
+    .bfield textarea { resize: vertical; min-height: 90px; }
+
+    .field-note {
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.55;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      border: none;
+      padding: 14px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--deep);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 6px;
+    }
+    .form-submit:hover { background: #dfc05e; }
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 22px;
+      border: 1px solid rgba(201,168,76,0.3);
+      background: rgba(201,168,76,0.04);
+    }
+
+    .form-success-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .form-success-text {
+      font-size: 0.95rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--soft);
+      line-height: 1.7;
+    }
+
+    /* PAY SECTION */
+    .pay-section { animation: fadeUp 1.1s 0.55s ease both; text-align: center; }
+
+    .pay-card {
       border: 1px solid rgba(201,168,76,0.3);
       background: linear-gradient(135deg, rgba(8,8,8,0.85), rgba(8,8,8,0.72));
       padding: 36px 32px;
@@ -287,7 +405,7 @@
       overflow: hidden;
     }
 
-    .booking-card::before {
+    .pay-card::before {
       content: '';
       position: absolute;
       inset: 0;
@@ -295,7 +413,7 @@
       pointer-events: none;
     }
 
-    .booking-price-display {
+    .pay-price-display {
       font-family: 'Cinzel', serif;
       font-size: 2rem;
       font-weight: 900;
@@ -305,7 +423,7 @@
       margin-bottom: 8px;
     }
 
-    .booking-sub {
+    .pay-sub {
       font-size: 0.95rem;
       font-style: italic;
       font-weight: 300;
@@ -319,7 +437,7 @@
       gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .pay-btn-lg {
@@ -333,9 +451,16 @@
       text-transform: uppercase;
       font-weight: 700;
       text-decoration: none;
-      transition: background 0.2s, border-color 0.2s;
+      transition: background 0.2s, border-color 0.2s, opacity 0.3s;
       min-width: 170px;
       justify-content: center;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    .pay-btn-lg.unlocked {
+      pointer-events: auto;
+      opacity: 1;
     }
 
     .pay-btn-lg.venmo {
@@ -343,7 +468,7 @@
       border: 1px solid rgba(201,168,76,0.45);
       color: var(--gold);
     }
-    .pay-btn-lg.venmo:hover {
+    .pay-btn-lg.venmo.unlocked:hover {
       background: rgba(201,168,76,0.1);
       border-color: var(--gold);
     }
@@ -353,22 +478,26 @@
       border: 1px solid var(--gold);
       color: var(--deep);
     }
-    .pay-btn-lg.cashapp:hover {
+    .pay-btn-lg.cashapp.unlocked:hover {
       background: #dfc05e;
       border-color: #dfc05e;
     }
 
-    .booking-note {
+    .pay-lock-note {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .pay-lock-note.hidden { display: none; }
+
+    .pay-note {
       font-size: 0.82rem;
       font-style: italic;
       color: var(--muted);
       line-height: 1.7;
     }
-
-    .booking-note strong {
-      font-style: normal;
-      color: var(--soft);
-    }
+    .pay-note strong { font-style: normal; color: var(--soft); }
 
     /* FOOTER */
     footer {
@@ -395,11 +524,7 @@
       display: block;
     }
 
-    .footer-copy {
-      font-size: 0.72rem;
-      color: var(--soft);
-      font-style: italic;
-    }
+    .footer-copy { font-size: 0.72rem; color: var(--soft); font-style: italic; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
@@ -487,7 +612,7 @@
       </div>
     </div>
 
-    <div class="divider" style="animation: fadeUp 1.1s 0.4s ease both;">
+    <div class="divider" style="animation: fadeUp 1.1s 0.35s ease both;">
       <span>◈ ✦ ◈</span>
     </div>
 
@@ -496,32 +621,80 @@
       <div class="disclaimer-card">
         <p class="disclaimer-title">✦ &nbsp; Important — Please Read Before Booking &nbsp; ✦</p>
         <p class="disclaimer-text">
-          This offering is <strong>only available on select days</strong> when both Kim and MindfulMandy108 are live together. 
-          Paying does not guarantee an immediate session. After payment, send your name and "Spirit Art Reading" 
+          This offering is <strong>only available on select days</strong> when both Kim and MindfulMandy108 are live together.
+          Paying does not guarantee an immediate session. After payment, send your name and "Blank Tarot and Spirit Art"
           in your payment note so Kim can add you to the waitlist. You'll be notified when the next collab live is scheduled.<br/><br/>
-          Follow <strong>@ohizkimmie2.0</strong> and <strong>@MindfulMandy108</strong> on TikTok and turn on post notifications 
+          Follow <strong>@ohizkimmie2.0</strong> and <strong>@MindfulMandy108</strong> on TikTok and turn on post notifications
           so you never miss an announcement.
         </p>
       </div>
     </div>
 
-    <div class="divider" style="animation: fadeUp 1.1s 0.5s ease both;">
+    <div class="divider" style="animation: fadeUp 1.1s 0.45s ease both;">
       <span>◎ ✦ ◎</span>
     </div>
 
-    <!-- BOOKING -->
-    <div class="booking-section">
-      <span class="section-label">☽ &nbsp; Book Your Spot &nbsp; ☽</span>
-      <div class="booking-card">
-        <div class="booking-price-display">$60</div>
-        <p class="booking-sub">Pay to reserve your spot on the waitlist.<br/>Kim will confirm once the next collab live is scheduled.</p>
-        <div class="pay-btns-large">
-          <a class="pay-btn-lg venmo" href="https://venmo.com/ohizkimmie?txn=pay&amount=60&note=Spirit+Art+Reading" target="_blank" rel="noopener">◇ &nbsp; Pay via Venmo</a>
-          <a class="pay-btn-lg cashapp" href="https://cash.app/$ohizkimmie/60" target="_blank" rel="noopener">✦ &nbsp; Pay via Cash App</a>
+    <!-- BOOKING FORM -->
+    <div class="booking-form-section">
+      <span class="section-label">☽ &nbsp; Before You Book &nbsp; ☽</span>
+      <div class="booking-form-card">
+
+        <div id="bookingFormInner">
+          <p class="form-intro">Fill out the form below to unlock your payment options. A confirmation will be sent to your email.</p>
+
+          <div class="bfield">
+            <label>Your Name <span style="color:rgba(201,168,76,0.5); font-family:'Cormorant Garamond',serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:0.78rem;">— required</span></label>
+            <input type="text" id="bName" placeholder="First and last name" autocomplete="name"/>
+          </div>
+
+          <div class="bfield">
+            <label>Your Email <span style="color:rgba(201,168,76,0.5); font-family:'Cormorant Garamond',serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:0.78rem;">— required</span></label>
+            <input type="email" id="bEmail" placeholder="your@email.com" autocomplete="email"/>
+          </div>
+
+          <div class="bfield">
+            <label>Type of Reading <span style="color:rgba(201,168,76,0.5); font-family:'Cormorant Garamond',serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:0.78rem;">— required</span></label>
+            <select id="bReading">
+              <option value="" disabled selected>— Choose your reading —</option>
+              <option value="Blank Tarot and Spirit Art — $60">Blank Tarot and Spirit Art — $60</option>
+            </select>
+          </div>
+
+          <div class="bfield">
+            <label>Anything you'd like to share before your reading? <span style="color:rgba(201,168,76,0.5); font-family:'Cormorant Garamond',serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:0.78rem;">— optional</span></label>
+            <textarea id="bNote" placeholder="A word or two is plenty..." rows="4"></textarea>
+            <p class="field-note">✦ Please keep this brief — the less Kim knows going in, the more organic and accurate your reading will be.</p>
+          </div>
+
+          <button class="form-submit" id="bookingSubmitBtn" onclick="handleBookingForm()">Complete &amp; Unlock Payment &nbsp; ☽</button>
         </div>
-        <p class="booking-note">
-          Include <strong>"Spirit Art Reading"</strong> and your name in the payment note.<br/>
-          Questions? Reach Kim at <strong>@ohizkimmie</strong> on Venmo or <strong>$ohizkimmie</strong> on Cash App.
+
+        <div class="form-success" id="bookingFormSuccess">
+          <p class="form-success-title">✦ &nbsp; You're all set &nbsp; ✦</p>
+          <p class="form-success-text">A confirmation has been sent to your email. Your payment options are now unlocked below — complete payment to reserve your spot on the waitlist.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="divider" style="animation: fadeUp 1.1s 0.55s ease both;">
+      <span>◇ ✦ ◇</span>
+    </div>
+
+    <!-- PAY SECTION -->
+    <div class="pay-section">
+      <span class="section-label">☽ &nbsp; Reserve Your Spot &nbsp; ☽</span>
+      <div class="pay-card">
+        <div class="pay-price-display">$60</div>
+        <p class="pay-sub">Pay to reserve your spot on the waitlist.<br/>Kim will confirm once the next collab live is scheduled.</p>
+        <p class="pay-lock-note" id="payLockNote">☽ Complete the form above to unlock payment</p>
+        <div class="pay-btns-large">
+          <a class="pay-btn-lg venmo" id="payVenmo" href="https://venmo.com/ohizkimmie?txn=pay&amount=60&note=Blank+Tarot+and+Spirit+Art" target="_blank" rel="noopener">◇ &nbsp; Pay via Venmo</a>
+          <a class="pay-btn-lg cashapp" id="payCashapp" href="https://cash.app/$ohizkimmie/60" target="_blank" rel="noopener">✦ &nbsp; Pay via Cash App</a>
+        </div>
+        <p class="pay-note">
+          Include <strong>"Blank Tarot and Spirit Art"</strong> and your name in the payment note.<br/>
+          Questions? Reach Kim at <strong><a href="mailto:kim@ohizkimmie.com" style="color:var(--soft); text-decoration:none;">kim@ohizkimmie.com</a></strong>
         </p>
       </div>
     </div>
@@ -533,5 +706,70 @@
     </footer>
 
   </div>
+
+  <script>
+    async function handleBookingForm() {
+      const name    = document.getElementById('bName').value.trim();
+      const email   = document.getElementById('bEmail').value.trim();
+      const reading = document.getElementById('bReading').value;
+      const note    = document.getElementById('bNote').value.trim();
+      const btn     = document.getElementById('bookingSubmitBtn');
+
+      // Clear previous errors
+      ['bName','bEmail','bReading'].forEach(id => {
+        document.getElementById(id).classList.remove('error');
+      });
+
+      // Validate
+      let valid = true;
+      if (!name)                         { document.getElementById('bName').classList.add('error');    valid = false; }
+      if (!email || !email.includes('@')) { document.getElementById('bEmail').classList.add('error');   valid = false; }
+      if (!reading)                       { document.getElementById('bReading').classList.add('error'); valid = false; }
+      if (!valid) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      try {
+        const res = await fetch('https://formspree.io/f/xkopyaza', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            reading_type: reading,
+            notes: note || 'None provided',
+            source: 'OhIzKimmie — Blank Tarot & Spirit Art',
+            _replyto: email,
+            _subject: 'New Booking — Blank Tarot and Spirit Art'
+          })
+        });
+
+        if (res.ok) {
+          document.getElementById('bookingFormInner').style.display = 'none';
+          document.getElementById('bookingFormSuccess').style.display = 'block';
+
+          // Unlock pay buttons
+          document.getElementById('payVenmo').classList.add('unlocked');
+          document.getElementById('payCashapp').classList.add('unlocked');
+          document.getElementById('payLockNote').classList.add('hidden');
+
+          // Scroll to pay section
+          setTimeout(() => {
+            document.querySelector('.pay-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 700);
+
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Complete & Unlock Payment ☽';
+          alert('Something went wrong — please try again.');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Complete & Unlock Payment ☽';
+        alert('Something went wrong — please try again.');
+      }
+    }
+  </script>
 </body>
 </html>
