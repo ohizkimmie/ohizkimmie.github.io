@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blank Tarot &amp; Spirit Art — OhIzKimmie x MindfulMandy108</title>
+  <meta name="description" content="A rare live collab between OhIzKimmie and MindfulMandy108 — intuitive tarot meets channeled spirit art, created live on TikTok. Available on select days only."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #C9A84C;
+      --gold-dim:   #8a6e2f;
+      --deep:       #0d0a08;
+      --cream:      #f2ebe0;
+      --muted:      rgba(242,235,224,0.5);
+      --soft:       rgba(242,235,224,0.75);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--deep);
+      background-image: url('bg.png');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .nebula {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: rgba(8, 6, 4, 0.55);
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* BACK LINK */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      padding-top: 32px;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .back-link:hover { opacity: 1; }
+
+    /* HERO */
+    .hero {
+      padding: 44px 0 0;
+      text-align: center;
+      animation: fadeUp 1.1s ease both;
+    }
+
+    .collab-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.35);
+      padding: 5px 18px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .collab-names {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.6rem, 2vw, 0.75rem);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .wordmark {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(1.7rem, 5.5vw, 2.8rem);
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-shadow: 0 0 50px rgba(201,168,76,0.35);
+      line-height: 1.1;
+    }
+
+    .hero-price {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      margin-top: 14px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--soft);
+      margin-top: 14px;
+      line-height: 1.75;
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 36px 0;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,168,76,0.35), transparent);
+    }
+    .divider span {
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      opacity: 0.7;
+    }
+
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 20px;
+      display: block;
+      opacity: 0.85;
+    }
+
+    /* ABOUT CARD */
+    .about-card {
+      border: 1px solid rgba(201,168,76,0.25);
+      background: rgba(8,8,8,0.72);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 1.1s 0.2s ease both;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06), transparent 65%);
+      pointer-events: none;
+    }
+
+    .about-card p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--soft);
+      line-height: 1.85;
+    }
+
+    .about-card p + p { margin-top: 14px; }
+
+    /* WHAT YOU GET */
+    .features-section { animation: fadeUp 1.1s 0.3s ease both; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 600px) {
+      .features-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .feature-card {
+      border: 1px solid rgba(201,168,76,0.18);
+      background: rgba(8,8,8,0.68);
+      padding: 22px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      font-size: 1.1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-text h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .feature-text p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--soft);
+      line-height: 1.65;
+    }
+
+    /* DISCLAIMER BOX */
+    .disclaimer-section { animation: fadeUp 1.1s 0.4s ease both; }
+
+    .disclaimer-card {
+      border: 1px solid rgba(201,168,76,0.3);
+      background: rgba(8,8,8,0.72);
+      padding: 24px 26px;
+      text-align: center;
+      position: relative;
+    }
+
+    .disclaimer-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07), transparent 65%);
+      pointer-events: none;
+    }
+
+    .disclaimer-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .disclaimer-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--soft);
+      line-height: 1.8;
+    }
+
+    .disclaimer-text strong {
+      font-weight: 500;
+      color: var(--cream);
+      font-style: normal;
+    }
+
+    /* BOOKING SECTION */
+    .booking-section {
+      animation: fadeUp 1.1s 0.5s ease both;
+      text-align: center;
+    }
+
+    .booking-card {
+      border: 1px solid rgba(201,168,76,0.3);
+      background: linear-gradient(135deg, rgba(8,8,8,0.85), rgba(8,8,8,0.72));
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.09), transparent 65%);
+      pointer-events: none;
+    }
+
+    .booking-price-display {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 30px rgba(201,168,76,0.2);
+      margin-bottom: 8px;
+    }
+
+    .booking-sub {
+      font-size: 0.95rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 26px;
+      line-height: 1.6;
+    }
+
+    .pay-btns-large {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .pay-btn-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      min-width: 170px;
+      justify-content: center;
+    }
+
+    .pay-btn-lg.venmo {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.45);
+      color: var(--gold);
+    }
+    .pay-btn-lg.venmo:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+    }
+
+    .pay-btn-lg.cashapp {
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      color: var(--deep);
+    }
+    .pay-btn-lg.cashapp:hover {
+      background: #dfc05e;
+      border-color: #dfc05e;
+    }
+
+    .booking-note {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .booking-note strong {
+      font-style: normal;
+      color: var(--soft);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 64px;
+      padding-bottom: 48px;
+      text-align: center;
+      animation: fadeUp 1.1s 0.7s ease both;
+    }
+
+    .footer-line {
+      width: 36px;
+      height: 1px;
+      background: rgba(201,168,76,0.2);
+      margin: 0 auto 16px;
+    }
+
+    .footer-mark {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--soft);
+      font-style: italic;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nebula"></div>
+
+  <div class="wrapper">
+
+    <a class="back-link" href="readings.html">← Back to Readings</a>
+
+    <div class="hero">
+      <span class="collab-badge">Special Collab Offering</span>
+      <p class="collab-names">OhIzKimmie &nbsp;✦&nbsp; MindfulMandy108</p>
+      <div class="wordmark">Blank Tarot<br/>&amp; Spirit Art</div>
+      <div class="hero-price">$60</div>
+      <p class="hero-tagline">
+        Two intuitives. One session. Cards pulled, messages channeled,<br/>
+        and art born in real time — all while you watch.
+      </p>
+    </div>
+
+    <div class="divider" style="animation: fadeUp 1.1s 0.1s ease both;">
+      <span>☽ ✦ ☽</span>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="about-card">
+      <p>
+        This isn't your typical tarot reading. Blank Tarot &amp; Spirit Art is a rare, fully collaborative live experience where two gifted readers come together to offer something neither could do alone.
+      </p>
+      <p>
+        Kim reads intuitively from the cards — pulling, interpreting, and delivering messages with 25 years of tarot experience behind every word. At the same time, MindfulMandy108 channels what she sees spiritually and translates it into original art, created live during the session. What you walk away with is both a reading <em>and</em> a piece of channeled art made specifically for your energy in that moment.
+      </p>
+      <p>
+        These sessions are rare, intimate, and unlike anything else you'll experience on TikTok Live. When they're available, they go fast.
+      </p>
+    </div>
+
+    <div class="divider" style="animation: fadeUp 1.1s 0.25s ease both;">
+      <span>◇ ✦ ◇</span>
+    </div>
+
+    <!-- WHAT YOU GET -->
+    <div class="features-section">
+      <span class="section-label">☽ &nbsp; What's Included &nbsp; ☽</span>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">☽</div>
+          <div class="feature-text">
+            <h4>Intuitive Tarot Reading</h4>
+            <p>Kim pulls and interprets your cards live — honest, direct, and energetically tuned to you.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">✦</div>
+          <div class="feature-text">
+            <h4>Channeled Spirit Art</h4>
+            <p>MindfulMandy108 creates original art live, channeling what she spiritually receives during your reading.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">◎</div>
+          <div class="feature-text">
+            <h4>Live on TikTok</h4>
+            <p>Everything happens in real time — you can watch, react, and receive your messages as they come through.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">◈</div>
+          <div class="feature-text">
+            <h4>Two Readers, One Energy</h4>
+            <p>The combination of tarot and channeled art creates a layered, multidimensional reading experience.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="divider" style="animation: fadeUp 1.1s 0.4s ease both;">
+      <span>◈ ✦ ◈</span>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer-section">
+      <div class="disclaimer-card">
+        <p class="disclaimer-title">✦ &nbsp; Important — Please Read Before Booking &nbsp; ✦</p>
+        <p class="disclaimer-text">
+          This offering is <strong>only available on select days</strong> when both Kim and MindfulMandy108 are live together. 
+          Paying does not guarantee an immediate session. After payment, send your name and "Spirit Art Reading" 
+          in your payment note so Kim can add you to the waitlist. You'll be notified when the next collab live is scheduled.<br/><br/>
+          Follow <strong>@ohizkimmie2.0</strong> and <strong>@MindfulMandy108</strong> on TikTok and turn on post notifications 
+          so you never miss an announcement.
+        </p>
+      </div>
+    </div>
+
+    <div class="divider" style="animation: fadeUp 1.1s 0.5s ease both;">
+      <span>◎ ✦ ◎</span>
+    </div>
+
+    <!-- BOOKING -->
+    <div class="booking-section">
+      <span class="section-label">☽ &nbsp; Book Your Spot &nbsp; ☽</span>
+      <div class="booking-card">
+        <div class="booking-price-display">$60</div>
+        <p class="booking-sub">Pay to reserve your spot on the waitlist.<br/>Kim will confirm once the next collab live is scheduled.</p>
+        <div class="pay-btns-large">
+          <a class="pay-btn-lg venmo" href="https://venmo.com/ohizkimmie?txn=pay&amount=60&note=Spirit+Art+Reading" target="_blank" rel="noopener">◇ &nbsp; Pay via Venmo</a>
+          <a class="pay-btn-lg cashapp" href="https://cash.app/$ohizkimmie/60" target="_blank" rel="noopener">✦ &nbsp; Pay via Cash App</a>
+        </div>
+        <p class="booking-note">
+          Include <strong>"Spirit Art Reading"</strong> and your name in the payment note.<br/>
+          Questions? Reach Kim at <strong>@ohizkimmie</strong> on Venmo or <strong>$ohizkimmie</strong> on Cash App.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-line"></div>
+      <span class="footer-mark">© 2026 OhIzKimmie</span>
+      <p class="footer-copy">Made with intention. Built on the road. 🐾</p>
+    </footer>
+
+  </div>
+</body>
+</html>

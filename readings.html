@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TikTok Live Readings — OhIzKimmie</title>
+  <meta name="description" content="Book a TikTok Live tarot reading with OhIzKimmie. Choose from Quickie, General, Love, Career/Finance readings, or the exclusive Blank Tarot & Spirit Art collab."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #C9A84C;
+      --gold-dim:   #8a6e2f;
+      --deep:       #0d0a08;
+      --cream:      #f2ebe0;
+      --muted:      rgba(242,235,224,0.5);
+      --soft:       rgba(242,235,224,0.75);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--deep);
+      background-image: url('bg.png');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .nebula {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: rgba(8, 6, 4, 0.55);
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* BACK LINK */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      padding-top: 32px;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .back-link:hover { opacity: 1; }
+
+    /* HERO */
+    .hero {
+      padding: 40px 0 0;
+      text-align: center;
+      animation: fadeUp 1.1s ease both;
+    }
+
+    .wordmark {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-shadow: 0 0 50px rgba(201,168,76,0.3);
+      line-height: 1;
+    }
+
+    .page-sub {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--soft);
+      margin-top: 14px;
+      line-height: 1.7;
+    }
+
+    .page-note {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 36px 0;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,168,76,0.35), transparent);
+    }
+    .divider span {
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      opacity: 0.7;
+    }
+
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 24px;
+      display: block;
+      opacity: 0.85;
+    }
+
+    /* READINGS GRID */
+    .readings-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      animation: fadeUp 1.1s 0.2s ease both;
+    }
+
+    @media (min-width: 600px) {
+      .readings-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .reading-card {
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(8,8,8,0.72);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reading-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.05), transparent 70%);
+      pointer-events: none;
+    }
+
+    .reading-card:hover {
+      border-color: rgba(201,168,76,0.45);
+      background: rgba(8,8,8,0.88);
+      transform: translateY(-3px);
+    }
+
+    .reading-icon {
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+
+    .reading-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .reading-price {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.06em;
+    }
+
+    .reading-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--soft);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .reading-btns {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pay-btn {
+      flex: 1;
+      min-width: 100px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 14px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+    }
+
+    .pay-btn.venmo {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold);
+    }
+    .pay-btn.venmo:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: rgba(201,168,76,0.6);
+    }
+
+    .pay-btn.cashapp {
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      color: var(--deep);
+    }
+    .pay-btn.cashapp:hover {
+      background: #dfc05e;
+      border-color: #dfc05e;
+    }
+
+    /* SPIRIT ART CARD — SPECIAL */
+    .spirit-art-section {
+      animation: fadeUp 1.1s 0.35s ease both;
+    }
+
+    .spirit-art-card {
+      border: 1px solid rgba(201,168,76,0.4);
+      background: linear-gradient(135deg, rgba(8,8,8,0.85), rgba(8,8,8,0.72));
+      padding: 36px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spirit-art-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.1), transparent 65%);
+      pointer-events: none;
+    }
+
+    .spirit-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.35);
+      padding: 5px 14px;
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+
+    .spirit-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.3rem, 4vw, 1.9rem);
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-shadow: 0 0 30px rgba(201,168,76,0.25);
+      margin-bottom: 6px;
+    }
+
+    .spirit-price {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .spirit-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--soft);
+      line-height: 1.75;
+      margin-bottom: 10px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .spirit-disclaimer {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 24px;
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 10px 16px;
+      display: inline-block;
+    }
+
+    .spirit-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      color: var(--deep);
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .spirit-cta:hover { background: #dfc05e; border-color: #dfc05e; }
+
+    /* HOW IT WORKS */
+    .how-section {
+      animation: fadeUp 1.1s 0.5s ease both;
+    }
+
+    .how-card {
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(8,8,8,0.72);
+      padding: 28px 28px;
+    }
+
+    .how-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .how-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .step-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--soft);
+      line-height: 1.7;
+    }
+
+    .step-text strong {
+      font-weight: 500;
+      color: var(--cream);
+      font-style: normal;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 64px;
+      padding-bottom: 48px;
+      text-align: center;
+      animation: fadeUp 1.1s 0.7s ease both;
+    }
+
+    .footer-line {
+      width: 36px;
+      height: 1px;
+      background: rgba(201,168,76,0.2);
+      margin: 0 auto 16px;
+    }
+
+    .footer-mark {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--soft);
+      font-style: italic;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nebula"></div>
+
+  <div class="wrapper">
+
+    <a class="back-link" href="index.html">← Back to ohizkimmie</a>
+
+    <div class="hero">
+      <div class="wordmark">TikTok Live Readings</div>
+      <p class="page-sub">Book your reading. Pay. Show up. Let the cards speak.</p>
+      <p class="page-note">All readings are done live on TikTok. After payment, send your name &amp; reading type<br/>to <strong style="color:var(--gold); font-style:normal;">@ohizkimmie</strong> on Venmo or Cash App so Kim can confirm your spot.</p>
+    </div>
+
+    <div class="divider" style="animation: fadeUp 1.1s 0.1s ease both;">
+      <span>☽ ✦ ☽</span>
+    </div>
+
+    <div class="readings-section">
+      <span class="section-label">☽ &nbsp; Choose Your Reading &nbsp; ☽</span>
+      <div class="readings-grid">
+
+        <!-- QUICKIE -->
+        <div class="reading-card">
+          <div class="reading-icon">✦</div>
+          <div class="reading-name">Quickie Reading</div>
+          <div class="reading-price">$15</div>
+          <p class="reading-desc">Short on time but craving clarity? A focused 1–2 card pull on one specific question. Fast, direct, and to the point — perfect when you just need a quick gut-check from the cards.</p>
+          <div class="reading-btns">
+            <a class="pay-btn venmo" href="https://venmo.com/ohizkimmie?txn=pay&amount=15&note=Quickie+Reading" target="_blank" rel="noopener">◇ Venmo</a>
+            <a class="pay-btn cashapp" href="https://cash.app/$ohizkimmie/15" target="_blank" rel="noopener">✦ Cash App</a>
+          </div>
+        </div>
+
+        <!-- GENERAL -->
+        <div class="reading-card">
+          <div class="reading-icon">◎</div>
+          <div class="reading-name">General Reading</div>
+          <div class="reading-price">$25</div>
+          <p class="reading-desc">A broader look at where you are right now. No specific question needed — just bring your energy and let the cards reveal what's most present for you at this moment in your journey.</p>
+          <div class="reading-btns">
+            <a class="pay-btn venmo" href="https://venmo.com/ohizkimmie?txn=pay&amount=25&note=General+Reading" target="_blank" rel="noopener">◇ Venmo</a>
+            <a class="pay-btn cashapp" href="https://cash.app/$ohizkimmie/25" target="_blank" rel="noopener">✦ Cash App</a>
+          </div>
+        </div>
+
+        <!-- LOVE -->
+        <div class="reading-card">
+          <div class="reading-icon">☽</div>
+          <div class="reading-name">Love Reading</div>
+          <div class="reading-price">$30</div>
+          <p class="reading-desc">Matters of the heart deserve their own space. Whether you're navigating a current relationship, healing from one, or wondering what's coming — this reading holds space for your love story.</p>
+          <div class="reading-btns">
+            <a class="pay-btn venmo" href="https://venmo.com/ohizkimmie?txn=pay&amount=30&note=Love+Reading" target="_blank" rel="noopener">◇ Venmo</a>
+            <a class="pay-btn cashapp" href="https://cash.app/$ohizkimmie/30" target="_blank" rel="noopener">✦ Cash App</a>
+          </div>
+        </div>
+
+        <!-- CAREER -->
+        <div class="reading-card">
+          <div class="reading-icon">◈</div>
+          <div class="reading-name">Career / Finances</div>
+          <div class="reading-price">$20</div>
+          <p class="reading-desc">Money, work, abundance, purpose — this reading looks at the practical path ahead. Great for decision points, new opportunities, or when you need guidance on where to direct your energy professionally.</p>
+          <div class="reading-btns">
+            <a class="pay-btn venmo" href="https://venmo.com/ohizkimmie?txn=pay&amount=20&note=Career+Finances+Reading" target="_blank" rel="noopener">◇ Venmo</a>
+            <a class="pay-btn cashapp" href="https://cash.app/$ohizkimmie/20" target="_blank" rel="noopener">✦ Cash App</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="divider" style="animation: fadeUp 1.1s 0.4s ease both;">
+      <span>◇ ✦ ◇</span>
+    </div>
+
+    <!-- SPIRIT ART TEASER -->
+    <div class="spirit-art-section">
+      <span class="section-label">☽ &nbsp; Special Offering &nbsp; ☽</span>
+      <div class="spirit-art-card">
+        <span class="spirit-badge">Collab Offering</span>
+        <div class="spirit-title">Blank Tarot &amp; Spirit Art</div>
+        <div class="spirit-price">$60</div>
+        <p class="spirit-desc">
+          A rare fusion of intuitive tarot and channeled spirit art — two readers, one reading. 
+          Kim pulls and interprets the cards while MindfulMandy108 channels what she sees into original art, created live in the moment.
+        </p>
+        <p class="spirit-disclaimer">✦ &nbsp; Only available with MindfulMandy108 on select days &nbsp; ✦</p>
+        <a class="spirit-cta" href="spirit-art.html">Learn More &amp; Book &nbsp; →</a>
+      </div>
+    </div>
+
+    <div class="divider" style="animation: fadeUp 1.1s 0.55s ease both;">
+      <span>◎ ✦ ◎</span>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-section">
+      <span class="section-label">☽ &nbsp; How It Works &nbsp; ☽</span>
+      <div class="how-card">
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">1</div>
+            <p class="step-text"><strong>Choose your reading</strong> and pay via Venmo or Cash App using the buttons above.</p>
+          </div>
+          <div class="how-step">
+            <div class="step-num">2</div>
+            <p class="step-text"><strong>Send your name and reading type</strong> in the payment note, or message @ohizkimmie on Venmo / $ohizkimmie on Cash App so Kim knows you're booked.</p>
+          </div>
+          <div class="how-step">
+            <div class="step-num">3</div>
+            <p class="step-text"><strong>Follow @ohizkimmie2.0 on TikTok</strong> and turn on post notifications so you never miss a live.</p>
+          </div>
+          <div class="how-step">
+            <div class="step-num">4</div>
+            <p class="step-text"><strong>Show up to the live</strong> — Kim will call your name when it's your turn. That's it. Let the cards do the rest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-line"></div>
+      <span class="footer-mark">© 2026 OhIzKimmie</span>
+      <p class="footer-copy">Made with intention. Built on the road. 🐾</p>
+    </footer>
+
+  </div>
+</body>
+</html>
