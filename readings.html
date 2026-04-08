@@ -797,4 +797,16 @@
         } else {
           btn.disabled = false;
           btn.textContent = 'Complete & Unlock Payment ☽';
-          alert('Something went wrong �
+          alert('Something went wrong — please try again or email Kim directly at ohizkimmie@gmail.com');
+        }
+
+      } catch (err) {
+        console.error('Form submission error:', err);
+        btn.disabled = false;
+        btn.textContent = 'Complete & Unlock Payment ☽';
+        alert('Network error — please check your connection and try again.');
+      }
+    }
+  </script>
+</body>
+</html>
