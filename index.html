@@ -292,19 +292,29 @@
       transform: translateX(5px);
     }
 
-    /* TIKTOK LIVE READINGS BUTTON — gold outline style */
+    /* TIKTOK LIVE READINGS BUTTON — gold filled like Book a Reading */
     .link-btn.tiktok-live {
-      border-color: rgba(201,168,76,0.55);
-      background: rgba(201,168,76,0.06);
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--deep);
     }
 
     .link-btn.tiktok-live .link-title {
-      color: var(--gold);
+      color: var(--deep);
+    }
+
+    .link-btn.tiktok-live .link-sub {
+      color: rgba(13,10,8,0.65);
+    }
+
+    .link-btn.tiktok-live .link-icon,
+    .link-btn.tiktok-live .link-arrow {
+      color: var(--deep);
     }
 
     .link-btn.tiktok-live:hover {
-      background: rgba(201,168,76,0.12);
-      border-color: var(--gold);
+      background: #dfc05e;
+      border-color: #dfc05e;
       transform: translateX(5px);
     }
 
@@ -691,10 +701,7 @@
       <p class="tagline">
         Nomad. Creator. Tarot reader.
       </p>
-      <!-- START HERE ANCHORS -->
-      <div class="start-here">
-        <a href="https://calendly.com/oh-iz-kimmie" target="_blank" rel="noopener">☽ Get a Reading</a>
-      </div>
+
     </div>
 
     <div class="divider" style="animation: fadeUp 1.1s 0.15s ease both;">
@@ -771,6 +778,17 @@
             <div class="link-text">
               <span class="link-title">Venmo</span>
               <span class="link-sub">@ohizkimmie</span>
+            </div>
+          </div>
+          <span class="link-arrow">→</span>
+        </a>
+
+        <a class="link-btn" href="spirit-art.html" target="_blank" rel="noopener">
+          <div class="link-left">
+            <span class="link-icon">✦</span>
+            <div class="link-text">
+              <span class="link-title">Spirit Art</span>
+              <span class="link-sub">Intuitive spirit portraits channeled through Kim</span>
             </div>
           </div>
           <span class="link-arrow">→</span>
