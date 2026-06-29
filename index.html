@@ -543,17 +543,12 @@
           </a>
         </div>
 
-        <!-- Liminal Veil waitlist -->
+        <!-- Liminal Veil -->
         <div id="app" style="margin-top: 2.5rem; background: var(--ink); color: #fff; padding: 2.25rem; text-align: center;">
-          <div style="font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--tarot); margin-bottom: 0.85rem;">Now in development</div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--tarot); margin-bottom: 0.85rem;">Now live</div>
           <h3 style="font-family: 'Instrument Serif', serif; font-size: 1.9rem; font-weight: 400; color: #fff; margin-bottom: 0.5rem;">Liminal Veil</h3>
           <p style="color: #888; font-size: 0.9rem; line-height: 1.65; margin-bottom: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto;">A tarot learning app for every seeker — beginner to intuitive. Pull. Reflect. Know.</p>
-          <div id="notifyForm" style="display: flex; gap: 0.5rem; max-width: 380px; margin: 0 auto;">
-            <input type="email" id="emailInput" placeholder="your@email.com" autocomplete="email" style="flex: 1; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); padding: 0.7rem 0.85rem; color: #fff; font-family: 'Geist', sans-serif; font-size: 0.9rem; border-radius: 4px; outline: none;"/>
-            <button onclick="handleNotify()" style="background: var(--tarot); border: none; padding: 0.7rem 1.1rem; font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: #1a1814; font-weight: 500; cursor: pointer; border-radius: 4px;">Notify me</button>
-          </div>
-          <div id="thankYou" style="display: none; margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--tarot); text-transform: uppercase;">✦  You're on the list.  ✦</div>
-          <p style="margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: 10px; color: #444; letter-spacing: 0.08em;">No spam. Just one message when we launch.</p>
+          <a href="https://app.liminalveil.app" target="_blank" rel="noopener" style="display: inline-block; background: var(--tarot); border: none; padding: 0.8rem 1.6rem; font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: #1a1814; font-weight: 500; text-decoration: none; border-radius: 4px;">Open the app →</a>
         </div>
       </div>
 
@@ -689,24 +684,6 @@
         });
       });
     });
-
-    // LVA waitlist
-    async function handleNotify() {
-      const input  = document.getElementById('emailInput');
-      const form   = document.getElementById('notifyForm');
-      const thanks = document.getElementById('thankYou');
-      const email  = input.value.trim();
-      if (!email || !email.includes('@')) { input.focus(); return; }
-      try {
-        const res = await fetch('https://formspree.io/f/mbdplgky', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email, source: 'OhIzKimmie — LVA Waitlist' })
-        });
-        if (res.ok) { form.style.display = 'none'; thanks.style.display = 'block'; }
-        else { alert('Something went wrong — please try again!'); }
-      } catch { alert('Something went wrong — please try again!'); }
-    }
 
     // Contact
     async function handleContact() {
