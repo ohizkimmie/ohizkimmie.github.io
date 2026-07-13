@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senior Dogs on the Road — OhIzKimmie</title>
+<meta name="description" content="Gentle, vet-informed tips for road tripping with a senior dog — pre-trip checkups, packing lists, comfort, and warning signs. Made with Lolo's golden years in mind.">
+
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://ohizkimmie.com/senior-dogs.html">
+<meta property="og:title"       content="Senior Dogs on the Road — OhIzKimmie">
+<meta property="og:description" content="A field guide for road tripping with your senior dog, made with Lolo's golden years in mind.">
+<meta property="og:image"       content="https://ohizkimmie.com/photo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Karla:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF3E4;
+    --paper-2:#F4E9D4;
+    --ink:#4A3728;
+    --ink-soft:#7A6552;
+    --rose:#C97B84;
+    --rose-deep:#8F4A54;
+    --sage:#8A9A5B;
+    --sage-deep:#59622F;
+    --mustard:#D9A441;
+    --mustard-deep:#8C6218;
+    --rust:#B8623F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Karla',sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px 60px;}
+
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    margin-top:24px;
+    font-family:'Quicksand',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.04em;
+    color:var(--rose-deep);
+    text-decoration:none;
+    opacity:.9;
+    transition:opacity .2s;
+  }
+  .back-link:hover{opacity:1;}
+
+  .hero{
+    position:relative;
+    padding:40px 20px 40px;
+    text-align:center;
+    border-bottom:2px dashed var(--ink-soft);
+  }
+  .hero .eyebrow{
+    font-family:'Caveat',cursive;
+    font-size:22px;
+    color:var(--rose-deep);
+    display:block;
+    margin-bottom:2px;
+  }
+  .hero h1{
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    font-size:38px;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  .hero p{
+    max-width:480px;
+    margin:0 auto;
+    color:var(--ink-soft);
+    font-size:16px;
+  }
+  .paw-row{margin:18px 0 4px;opacity:.55;}
+
+  .stamp{
+    display:inline-block;
+    margin-top:18px;
+    padding:6px 16px;
+    border:2px solid var(--sage-deep);
+    border-radius:999px;
+    color:var(--sage-deep);
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    transform:rotate(-3deg);
+  }
+
+  section{margin-top:44px;}
+  .sec-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .sec-num{
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    color:var(--paper);
+    background:var(--rose-deep);
+    width:30px;height:30px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex:none;
+  }
+  .sec-head h2{
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    font-size:22px;
+    margin:0;
+    color:var(--ink);
+  }
+  .sec-sub{
+    font-family:'Caveat',cursive;
+    font-size:18px;
+    color:var(--ink-soft);
+    margin:-10px 0 16px 42px;
+  }
+
+  .card{
+    background:var(--paper-2);
+    border-radius:16px;
+    padding:18px 20px;
+    margin-bottom:12px;
+    border:1px solid rgba(74,55,40,0.12);
+  }
+  .card h3{
+    font-family:'Quicksand',sans-serif;
+    font-size:16px;
+    margin:0 0 6px;
+    color:var(--rose-deep);
+  }
+  .card p{margin:0;font-size:15px;color:var(--ink);}
+
+  .checklist{list-style:none;margin:0;padding:0;}
+  .checklist li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:10px 0;
+    border-bottom:1px dashed rgba(74,55,40,0.2);
+    font-size:15px;
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .box{
+    flex:none;
+    width:18px;height:18px;
+    border-radius:5px;
+    border:2px solid var(--sage-deep);
+    margin-top:2px;
+  }
+
+  .grid-two{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  @media(max-width:520px){.grid-two{grid-template-columns:1fr;}}
+
+  .tip{
+    background:transparent;
+    border-left:3px solid var(--mustard);
+    padding:4px 0 4px 14px;
+    margin-bottom:12px;
+    font-size:15px;
+  }
+  .tip b{color:var(--mustard-deep);}
+
+  .alert{
+    background:#F6E3D6;
+    border:1px solid var(--rust);
+    border-radius:14px;
+    padding:16px 18px;
+    margin-top:16px;
+  }
+  .alert h3{
+    font-family:'Quicksand',sans-serif;
+    color:var(--rust);
+    margin:0 0 8px;
+    font-size:16px;
+  }
+  .alert ul{margin:0;padding-left:18px;font-size:14px;}
+  .alert li{margin-bottom:4px;}
+
+  .signoff{
+    margin-top:56px;
+    text-align:center;
+    padding-top:30px;
+    border-top:2px dashed var(--ink-soft);
+  }
+  .signoff p{
+    font-family:'Caveat',cursive;
+    font-size:24px;
+    color:var(--rose-deep);
+    margin:0 0 6px;
+  }
+  .signoff span{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  .badge-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px;
+  }
+  .badge{
+    font-family:'Quicksand',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    background:var(--sage);
+    color:#fff;
+    padding:4px 10px;
+    border-radius:999px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="index.html">← Back to OhIzKimmie</a>
+
+  <div class="hero">
+    <span class="eyebrow">a field guide for</span>
+    <h1>Road tripping with your senior dog</h1>
+    <p>Gentle, vet-backed tips for keeping an old soul comfy, safe, and happy on the road, made with Lolo's golden years in mind.</p>
+    <div class="paw-row">🐾 🐾 🐾</div>
+    <div class="stamp">vet-informed guide</div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">1</div>
+      <h2>Before you hit the road</h2>
+    </div>
+    <div class="sec-sub">the pre-trip checkup</div>
+    <div class="card">
+      <h3>See the vet first, every time</h3>
+      <p>Vets recommend a wellness check before any real distance with a senior dog, confirming vaccines, heartworm/flea/tick prevention are current, and that your pup is actually fit for the trip. It's also the moment to ask about motion sickness meds, joint supplements, and get copies of medical records in case you need a vet in a new city.</p>
+    </div>
+    <div class="card">
+      <h3>Update the microchip and ID</h3>
+      <p>Make sure your dog's microchip info and tags are current before you leave. If you're ever separated on the road, this is what gets them back to you.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">2</div>
+      <h2>The packing list</h2>
+    </div>
+    <div class="sec-sub">for the co-pilot who's earned some spoiling</div>
+    <ul class="checklist">
+      <li><span class="box"></span> Orthopedic or memory-foam bed, plus a blanket that smells like home</li>
+      <li><span class="box"></span> Pet ramp or portable steps for achy joints (skip the jumping)</li>
+      <li><span class="box"></span> Routine meds and supplements, with a few extra days' buffer</li>
+      <li><span class="box"></span> Copy of vaccination and medical records</li>
+      <li><span class="box"></span> First aid kit: gauze, vet wrap, antiseptic wipes, styptic powder, nail clippers</li>
+      <li><span class="box"></span> Their regular food, so travel doesn't also mean a tummy upset</li>
+      <li><span class="box"></span> Pee pads or washable belly bands, for the long stretches between stops</li>
+      <li><span class="box"></span> Water, collapsible bowl, and a few high-value chews for calm chewing</li>
+      <li><span class="box"></span> A secure crate or crash-tested harness for the seatbelt</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">3</div>
+      <h2>On the road</h2>
+    </div>
+    <div class="sec-sub">driving like there's precious cargo, because there is</div>
+    <div class="tip"><b>Stop every 2 to 3 hours.</b> Senior joints stiffen up fast. Frequent, short breaks to stretch and potty beat one long haul every time.</div>
+    <div class="tip"><b>Brake and turn gently.</b> Older bodies don't absorb sudden stops well. Smooth driving is a comfort measure, not just a safety one.</div>
+    <div class="tip"><b>Skip the head-out-the-window moment.</b> Cute, but debris and wind can hurt older eyes and ears.</div>
+    <div class="tip"><b>Watch the temperature.</b> Seniors regulate heat and cold less efficiently. Keep the cabin moderate and never leave them alone in a parked car.</div>
+    <div class="tip"><b>Feed light, a few hours before departure.</b> A full belly and a moving car don't mix, especially for older stomachs.</div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">4</div>
+      <h2>Comfort and sleep</h2>
+    </div>
+    <div class="sec-sub">because a good night's rest is non-negotiable</div>
+    <div class="grid-two">
+      <div class="card">
+        <h3>Cushion everything</h3>
+        <p>A soft bed protects hips and joints from hard surfaces, whether it's the car floor or a new place to sleep.</p>
+      </div>
+      <div class="card">
+        <h3>Keep the routine</h3>
+        <p>Same feeding times, same bedtime rituals. Familiarity is calming when the scenery keeps changing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">5</div>
+      <h2>Signs to slow down or stop</h2>
+    </div>
+    <div class="sec-sub">trust your gut, and trust theirs too</div>
+    <div class="alert">
+      <h3>Call the vet or pull over if you notice</h3>
+      <ul>
+        <li>Excessive panting, drooling, or vomiting in the car</li>
+        <li>Pacing, whining, or trembling that doesn't settle</li>
+        <li>Stiffness or reluctance to stand after a rest stop</li>
+        <li>Noticeably less interest in food or water</li>
+        <li>Confusion or unsteadiness getting in or out of the car</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">6</div>
+      <h2>Emergency kit essentials</h2>
+    </div>
+    <div class="sec-sub">hope you never need it, glad you have it</div>
+    <div class="badge-row">
+      <span class="badge">Vet records</span>
+      <span class="badge">Meds list</span>
+      <span class="badge">Nearest 24hr vet, saved ahead</span>
+      <span class="badge">Poison control number</span>
+      <span class="badge">Extra leash</span>
+      <span class="badge">Muzzle (even gentle dogs bite in pain)</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">7</div>
+      <h2>From the road</h2>
+    </div>
+    <div class="sec-sub">tidbits earned the hard way, not from a textbook</div>
+
+    <div class="card">
+      <h3>Time your errands around the heat</h3>
+      <p>Only run errands, shower, hit the gym, or do anything that means leaving a dog in the car during early morning or late evening. Keeping trips out of the peak-heat window is the easiest way to protect them when they can't come inside with you.</p>
+    </div>
+
+    <div class="card">
+      <h3>Always have temp control on hand</h3>
+      <p>Keep a fan or some form of temperature control running any time you're in the vehicle, and any time you're not. A parked car heats up fast, and a little airflow can make the difference.</p>
+    </div>
+
+    <div class="card">
+      <h3>Check the park rules before you go</h3>
+      <p>National and state parks vary a lot on whether dogs are allowed, and where. Always check the specific park's guidelines ahead of time so you're not caught off guard at the gate.</p>
+    </div>
+  </section>
+
+  <div class="signoff">
+    <p>Slow miles, soft beds, and all the window views a good dog deserves.</p>
+    <span>made for the road, made for Lolo 💚</span>
+  </div>
+
+</div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40d65ad82fdf4e07b2f913f03bbd0a8e"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
