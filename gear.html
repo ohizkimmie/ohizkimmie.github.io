@@ -189,6 +189,18 @@
     }
     .hi-card.placeholder .hi-name { color: var(--mid); }
 
+    /* "Not affiliated" tag for plain, no-commission recommendations */
+    .hi-card .hi-tag {
+      align-self: flex-start;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--mid);
+      border: 1px solid var(--rule);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      margin-top: 0.35rem;
+    }
+
     /* CATEGORY LISTS */
     .lists { padding-top: 4rem; animation: fadeUp 0.7s 0.15s ease both; }
     .list-intro {
@@ -436,6 +448,28 @@
           <p class="lc-desc">Tripod, mic, lighting and mounts — how I film the road while living on it.</p>
           <span class="lc-meta">View list →</span>
         </a>
+      </div>
+    </section>
+
+    <!-- MORE THINGS I LOVE — plain recommendations, no affiliate / no commission -->
+    <!-- Hidden until real recs are added: delete style="display:none" once the placeholders below are replaced -->
+    <section class="heroitems" id="recsSection" style="display:none; padding-top: 4rem;">
+      <div class="label">Not affiliated · just love them</div>
+      <h2 class="hi-intro">A few more <span class="accent">things I love</span>.</h2>
+      <p class="hi-blurb">Stuff I genuinely recommend but make nothing on — no affiliate links, no commission. Just gear and finds worth knowing about.</p>
+
+      <div class="hi-grid" id="recGrid">
+        <!--
+          TODO: replace each placeholder with a real rec. Note: NO rel="sponsored" (these aren't paid links):
+          <a class="hi-card" href="ANY_LINK" target="_blank" rel="noopener">
+            <span class="hi-name">Item name</span>
+            <span class="hi-why">One line on why you love it.</span>
+            <span class="hi-tag">Not affiliated</span>
+          </a>
+        -->
+        <div class="hi-card placeholder"><span class="hi-name">Rec 1</span><span class="hi-why">One line on why you love it.</span><span class="hi-tag">Not affiliated</span></div>
+        <div class="hi-card placeholder"><span class="hi-name">Rec 2</span><span class="hi-why">One line on why you love it.</span><span class="hi-tag">Not affiliated</span></div>
+        <div class="hi-card placeholder"><span class="hi-name">Rec 3</span><span class="hi-why">One line on why you love it.</span><span class="hi-tag">Not affiliated</span></div>
       </div>
     </section>
 
