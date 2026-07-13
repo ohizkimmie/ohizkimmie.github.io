@@ -254,8 +254,21 @@
       font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
       color: var(--nomad);
     }
-    /* A list whose Amazon URL isn't set yet falls back to the main storefront and shows this note */
-    .lcard[data-pending="true"] .lc-meta::after { content: ' · full store'; color: var(--mid); }
+    /* A list whose Amazon URL isn't set yet falls back to the main storefront until built */
+    .lcard[data-pending="true"] .lc-meta::after { content: ' · full store for now'; color: var(--mid); }
+    /* "Coming soon" badge — auto-removed when data-pending is dropped from a card */
+    .lcard[data-pending="true"]::after {
+      content: 'Coming soon';
+      position: absolute;
+      top: 0.9rem; right: 0.9rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--nomad);
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+    }
 
     @media (max-width: 600px) {
       .list-grid { grid-template-columns: 1fr; }
@@ -387,7 +400,7 @@
     <section class="lists">
       <div class="label">Shop by system</div>
       <h2 class="list-intro">Browse the <span class="accent">kit</span>.</h2>
-      <p class="list-blurb">I shop by system, not by random item — so that's how these are organized. Each list opens in Amazon. Lists still coming will drop you at the full storefront for now.</p>
+      <p class="list-blurb">I shop by system, not by random item — so that's how these are organized. The individual system lists are <strong style="color: var(--nomad); font-weight: 500;">coming soon</strong> — for now, every card opens my full storefront on Amazon.</p>
 
       <div class="list-grid">
         <!--
