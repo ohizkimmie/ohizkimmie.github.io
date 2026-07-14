@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting Mail as a Nomad — OhIzKimmie</title>
+<meta name="description" content="How to receive mail with no fixed address — forwarding services, free options, virtual mailboxes, and package tricks for life lived out of a car.">
+
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://ohizkimmie.com/mail-guide.html">
+<meta property="og:title"       content="Getting Mail as a Nomad — OhIzKimmie">
+<meta property="og:description" content="How nomads actually get their mail with no fixed address — forwarding services, free options, and package tricks.">
+<meta property="og:image"       content="https://ohizkimmie.com/photo.jpg">
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(180deg, #e6faf4 0%, #d4f2e8 40%, #bfe9d8 100%);
+    background-attachment: fixed;
+    color: #163832;
+    min-height: 100vh;
+  }
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 54px 48px 54px;
+    position: relative;
+  }
+  @media (max-width: 560px) {
+    .page { padding: 28px 22px 40px 22px; }
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 22px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: .04em;
+    color: #0e7a63;
+    text-decoration: none;
+    opacity: .9;
+    transition: opacity .2s;
+  }
+  .back-link:hover { opacity: 1; }
+  .top-decor {
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 8px;
+    color: #1fa385;
+    margin-bottom: 6px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 32px;
+    margin: 4px 0 4px 0;
+    color: #0e7a63;
+    letter-spacing: 1px;
+  }
+  .subtitle {
+    text-align: center;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #2f8a71;
+    margin-bottom: 4px;
+  }
+  .divider {
+    text-align: center;
+    font-size: 16px;
+    color: #8fd6c0;
+    margin: 10px 0 22px 0;
+    letter-spacing: 6px;
+  }
+  .section-label {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: #0e9a7c;
+    margin: 16px 0 8px 4px;
+  }
+  .card {
+    background: #f2fdf9;
+    border: 1.5px solid #c3e6d8;
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 13px;
+    box-shadow: 2px 3px 0px #cfeedd;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .emoji {
+    font-size: 26px;
+    line-height: 1.3;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .card-text {
+    flex: 1;
+  }
+  .card-title {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: #0e5c4c;
+    margin-bottom: 3px;
+  }
+  .tag {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    color: #0e7a63;
+    background: #ccf3e4;
+    padding: 1px 9px;
+    border-radius: 10px;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+  .card-desc {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #3e5f58;
+  }
+  .tip-box {
+    background: #fff7e0;
+    border: 1.5px dashed #e0c268;
+    border-radius: 14px;
+    padding: 12px 18px;
+    margin-top: 8px;
+    margin-bottom: 14px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 12.5px;
+    color: #6b5920;
+    line-height: 1.5;
+  }
+  .tip-box b {
+    color: #8a6d1a;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 22px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+    color: #1fa385;
+    letter-spacing: 1px;
+  }
+  .footer-icons {
+    font-size: 15px;
+    margin-bottom: 6px;
+    letter-spacing: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <a class="back-link" href="index.html">← Back to OhIzKimmie</a>
+    <div class="top-decor">📬 ✨ ✉️</div>
+    <h1>Getting Mail as a Nomad</h1>
+    <div class="subtitle">— how to get your mail with no fixed address —</div>
+    <div class="divider">• • • • •</div>
+
+    <div class="section-label">Mail Forwarding Services</div>
+
+    <div class="card">
+      <div class="emoji">🏔️</div>
+      <div class="card-text">
+        <div class="card-title">Escapees Mail Service <span class="tag">~$18–35/mo</span></div>
+        <div class="card-desc">Nomad-run, Texas-based (no state income tax), scans mail so you can view it in an app and request forwarding on demand. Popular for full-timers who want a legit domicile address.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">⚓</div>
+      <div class="card-text">
+        <div class="card-title">St. Brendan's Isle <span class="tag">~$15–30/mo</span></div>
+        <div class="card-desc">Florida-based, geared toward RVers and boaters. Same scan-and-choose setup, plus package acceptance for Amazon and freight.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">📦</div>
+      <div class="card-text">
+        <div class="card-title">Traveling Mailbox / PostScan Mail <span class="tag">~$10–25/mo</span></div>
+        <div class="card-desc">Digital mailbox with locations all over the country — good if you want an address near where you actually roam instead of one fixed hub state.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">⏰</div>
+      <div class="card-text">
+        <div class="card-title">Anytime Mailbox <span class="tag">$4.99–$9.99+/mo</span></div>
+        <div class="card-desc">A virtual mailbox with 2,500+ real street addresses (not PO boxes) worldwide. Staff scan your mail so you view it in the app or browser, then choose to open &amp; scan, forward, shred/recycle, or schedule a pickup — from anywhere with internet. Cheapest plans run $4.99–$5.99/mo, average plan is $9.99/mo. Price and included scans/forwards vary by location since each one is independently run, so compare a couple before picking your address.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">💻</div>
+      <div class="card-text">
+        <div class="card-title">Online Mailing Systems (Virtual Mailbox Platforms) <span class="tag">~$10–40/mo</span></div>
+        <div class="card-desc">A whole category now — iPostal1, PostScan Mail, US Global Mail, VirtualPostMail, and others. All work the same basic way: real street address, staff scans + uploads mail to an app, you request forward/shred/pickup. Entry plans run $9.99–$15/mo for ~30 pieces; watch for per-page scan fees and per-piece forwarding charges ($5–$20+) once you're past the included amount.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Free / Low-Cost Options</div>
+
+    <div class="card">
+      <div class="emoji">🏤</div>
+      <div class="card-text">
+        <div class="card-title">USPS General Delivery <span class="tag">Free</span></div>
+        <div class="card-desc">Address mail to "Your Name, General Delivery, City, State, ZIP" and pick it up with photo ID at that post office. Held 10–30 days depending on the branch — call ahead to confirm they still offer it.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🏠</div>
+      <div class="card-text">
+        <div class="card-title">Trusted Friend or Family Address <span class="tag">Free</span></div>
+        <div class="card-desc">The simplest option if you have someone who can hold mail and text you photos of anything important, or batch-ship it when it piles up.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🅿️</div>
+      <div class="card-text">
+        <div class="card-title">UPS Store Mailbox <span class="tag">~$15–25/mo</span></div>
+        <div class="card-desc">Gives you a real street address (not a PO Box), which matters for banks, IDs, and package carriers that won't ship to a PO Box.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Package-Specific</div>
+
+    <div class="card">
+      <div class="emoji">🔐</div>
+      <div class="card-text">
+        <div class="card-title">Amazon Locker / Counter <span class="tag">Free</span></div>
+        <div class="card-desc">Ship Amazon orders to a locker at a Whole Foods, pharmacy, or store near your current location — pick up with a code, no address needed at all.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🏭</div>
+      <div class="card-text">
+        <div class="card-title">UPS / FedEx General Package Pickup <span class="tag">$5–$10/pkg</span></div>
+        <div class="card-desc">Ship to "Hold for Pickup" at any UPS Store or FedEx Office location near your route — show ID and grab it, no account or mailbox rental needed. Great one-off option when you just need a single package somewhere along your path.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🚚</div>
+      <div class="card-text">
+        <div class="card-title">Ship to Campground / Harvest Host <span class="tag">Ask first</span></div>
+        <div class="card-desc">Some campgrounds and RV parks will hold a package if you call ahead and let them know it's coming — handy for time-sensitive gear on a longer stay.</div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <b>Domicile tip:</b> Your mail forwarding address can double as your legal domicile for registration, insurance, and taxes. South Dakota, Texas, and Florida are the most nomad-friendly states — no state income tax and mail services set up specifically for full-timers.
+    </div>
+
+    <div class="footer">
+      <div class="footer-icons">🚐 🌵 📬</div>
+      ohizkimmie.com
+    </div>
+  </div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40d65ad82fdf4e07b2f913f03bbd0a8e"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
